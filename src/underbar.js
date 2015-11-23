@@ -308,6 +308,14 @@
   // already computed the result for the given argument and return that value
   // instead if possible.
   _.memoize = function(func) {
+    var cache = {};
+    return function(){
+      var args = Array.prototype.slice.call(arguments);
+      if(!cache.hasOwnProperty(args)){
+        cache[args] = func.apply(this, args);
+      }
+        return cache[args];
+    }
   };
 
   // Delays a function for the given number of milliseconds, and then calls
