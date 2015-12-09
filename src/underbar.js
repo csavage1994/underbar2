@@ -356,7 +356,9 @@
     // console.log(shuffled + " after");
      // console.log(shuffled);
     })
-    console.log(shuffled);
+    if(array.toString() === shuffled.toString()){
+      shuffled = _.shuffle(shuffled);
+    }
     return shuffled;
   };
 
